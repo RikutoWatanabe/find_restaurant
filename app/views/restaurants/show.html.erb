@@ -5,6 +5,7 @@
 
 <hr>
 	<p><strong>Open</strong> <%= @restaurant.start.to_s(:default)%> ~~ <strong>Close</strong> <%= @restaurant.end.to_s(:default)%></p><br>
+	<p><strong>定休日</strong> <%= @restaurant.holiday%></p><br>
 	<p><strong>場所</strong> <%= @restaurant.location %></p><br>
 	<p><strong>URL</strong> <%= @restaurant.url %></p>
 
