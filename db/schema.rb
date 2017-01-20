@@ -13,8 +13,8 @@
 ActiveRecord::Schema.define(version: 20170120152305) do
 
   create_table "restaurants", force: :cascade do |t|
-    t.time     "start"
-    t.time     "end"
+    t.integer  "start"
+    t.integer  "end"
     t.string   "name"
     t.string   "location"
     t.string   "url"
