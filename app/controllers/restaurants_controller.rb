@@ -3,7 +3,7 @@ class RestaurantsController < ApplicationController
 		time = Time.now
 		now = time.hour
 		@restaurants = Restaurant.where('start <= end and ? <= end and ? >= start',now,now)
-		@restaurants2 = Restaurant.where('start > end and ? < end and ? < start',now,now)
+		/@restaurants2 = Restaurant.where('start > end and ? < end and ? < start',now,now)/
 	end
 
 	def show
