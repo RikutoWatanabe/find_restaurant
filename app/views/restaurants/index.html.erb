@@ -1,0 +1,16 @@
+<h1>現在開いているお店</h1>
+<p>
+	<%= link_to "Topに戻る", root_path %>
+	
+</p>
+<hr>
+	<table>
+		<% @restaurants.each do |r| %>
+
+
+		<li>
+			<%= link_to r.name, restaurant_path(r),class: "btn btn-success"%>
+		</li>
+		<%end%>
+	</table>
+</hr>

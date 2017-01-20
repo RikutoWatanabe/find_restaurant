@@ -1,0 +1,26 @@
+<h1>編集</h1>
+<p><%= link_to "<<Back", restaurants_path%></p>
+<h1>
+</h1>
+
+<p>
+ <%= form_for @restaurant do |f| %>
+  店名: <%= f.text_field :name %> <br>
+  open: <%= f.text_field :start%> <br>
+  close: <%= f.text_field :end %> <br>
+  場所:	<%= f.text_field :location %> <br>
+  URL: <%= f.text_field :url %> <br>
+		<% if @restaurant.errors.any? %>
+			<%= @restaurant.errors.messages[:name][0] %><br>
+		<%end%>
+		<% if @restaurant.errors.any? %>
+			<%= @restaurant.errors.messages[:start][0]%><br>
+		<%end%>
+		<% if @restaurant.errors.any? %>
+			<%= @restaurant.errors.messages[:end][0]%><br>
+		<%end%>
+</p>
+<p>
+	<%= f.submit "作成"%>
+</p>
+<% end %>
