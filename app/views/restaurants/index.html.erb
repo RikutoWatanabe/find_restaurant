@@ -5,13 +5,11 @@
 </p>
 <hr>
 	<ul>
-		<%if @restaurants.any?%>
-			<% @restaurants.each do |r| %>
+		<% @restaurants.each do |r| %>
 
-				<li>
-					<%= link_to r.name, restaurant_path(r),class: "btn btn-success"%>
-				</li>
-			<%end%>
+			<li>
+				<%= link_to r.name, restaurant_path(r),class: "btn btn-success"%>
+			</li>
 		<%end%>
 	</ul>
 </hr>
