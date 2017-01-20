@@ -2,10 +2,10 @@ class RestaurantsController < ApplicationController
 	def index
 		time = Time.now
 		now = time.hour
-		@restaurants = Restaurant.all
-		/@restaurants = Restaurant.where('start <= end and ? <= end and ? >= start',now,now)/
-		/@restaurants2 = Restaurant.where('start > end and ? < end and ? < start',now,now)/
-		/@restaurants3 = Restaurant.where('start > end and ? > end and ? >= start',now,now)/
+
+		@restaurants = Restaurant.where('start <= end and ? < end and ? >= start',now,now).or(Restaurant.where('start > end and ? < end and ? < start',now,now)).or(Restaurant.where('start > end and ? > end and ? >= start',now,now))
+
+
 	end
 
 	def show

@@ -6,8 +6,8 @@
 <p>
  <%= form_for @restaurant do |f| %>
   店名: <%= f.text_field :name %> <br>
-  open: <%= f.text_field :start %>時 (0-23) <br>
-  close: <%= f.text_field :end %>時 (0-23) <br>
+  open: <%= f.text_field :start %>時 (0-24) <br>
+  close: <%= f.text_field :end %>時 (0-24) <br>
   定休日: <%= f.text_field :holiday%><br>
   場所:	<%= f.text_field :location %> <br>
   URL: <%= f.text_field :url %> <br>
