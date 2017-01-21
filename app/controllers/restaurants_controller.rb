@@ -3,7 +3,7 @@ class RestaurantsController < ApplicationController
 		time = Time.now
 		now = time.hour
 
-		@restaurants = Restaurant.where('start <= end and ? < end and ? >= start',now,now).or(Restaurant.where('start > end and ? < end and ? < start',now,now)).or(Restaurant.where('start > end and ? > end and ? >= start',now,now))
+		@restaurants = Restaurant.where('start_t <= end_t and ? < end_t and ? >= start_t',now,now).or(Restaurant.where('start_t > end_t and ? < end_t and ? < start_t',now,now)).or(Restaurant.where('start_t > end_t and ? > end_t and ? >= start_t',now,now))
 
 
 	end
@@ -48,7 +48,7 @@ class RestaurantsController < ApplicationController
 	private
 
 	def params_restaurant
-		params.require(:restaurant).permit(:name, :start,:end,:holiday,:location,:url)
+		params.require(:restaurant).permit(:name, :start_t, :end_t, :holiday,:location,:url)
 	end
 
 end

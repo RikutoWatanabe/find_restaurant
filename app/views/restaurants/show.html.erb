@@ -5,7 +5,7 @@
 <%= link_to "編集", edit_restaurant_path(@restaurant)%>
 
 <hr>
-	<p><strong>Open</strong> <%= @restaurant.start%>:00 ~~ <strong>Close</strong> <%= @restaurant.end%>:00</p><br>
+	<p><strong>Open</strong> <%= @restaurant.start_t%>:00 ~~ <strong>Close</strong> <%= @restaurant.end_t%>:00</p><br>
 	<p><strong>定休日</strong> <%= @restaurant.holiday%></p><br>
 	<p><strong>場所</strong> <%= @restaurant.location %></p><br>
 	<p><strong>URL</strong> <%=link_to @restaurant.url, @restaurant.url %></p>

@@ -6,8 +6,8 @@
 <p>
  <%= form_for @restaurant do |f| %>
   店名: <%= f.text_field :name %> <br>
-  open: <%= f.text_field :start%> <br>
-  close: <%= f.text_field :end %> <br>
+  open: <%= f.text_field :start_t%> <br>
+  close: <%= f.text_field :end_t %> <br>
   定休日: <%= f.text_field :holiday%> <br>
   場所:	<%= f.text_field :location %> <br>
   URL: <%= f.text_field :url %> <br>
@@ -15,10 +15,10 @@
 			<%= @restaurant.errors.messages[:name][0] %><br>
 		<%end%>
 		<% if @restaurant.errors.any? %>
-			<%= @restaurant.errors.messages[:start][0]%><br>
+			<%= @restaurant.errors.messages[:start_t][0]%><br>
 		<%end%>
 		<% if @restaurant.errors.any? %>
-			<%= @restaurant.errors.messages[:end][0]%><br>
+			<%= @restaurant.errors.messages[:end_t][0]%><br>
 		<%end%>
 </p>
 <p>
