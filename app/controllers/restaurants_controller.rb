@@ -23,8 +23,10 @@ class RestaurantsController < ApplicationController
 
 	def destroy
 		@restaurant = Restaurant.find(params[:id])
-		@restaurant.destroy
-		redirect_to root_path
+		if @restaurant.destroy
+			redirect_to root_path
+		else
+			redirect_to root_path
 	end
 
 	def edit
