@@ -8,7 +8,7 @@
   ※店名: <%= f.text_field :name %> <br>
   ※open: <%= f.text_field :start_t %>時 (0-24) <br>
   ※close: <%= f.text_field :end_t %>時 (0-24) <br>
-  *L.O: <%= f.text_field :last_order %> (ex 22:30)<br>
+  L.O: <%= f.text_field :last_order %> (ex 22:30)<br>
   定休日: <%= f.text_field :holiday%><br>
   場所:	<%= f.text_field :location %> <br>
   URL: <%= f.text_field :url %> <br>
@@ -20,9 +20,6 @@
 		<%end%>
 		<% if @restaurant.errors.any? %>
 			<%= @restaurant.errors.messages[:end_t][0]%><br>
-		<%end%>
-		<% if @restaurant.errors.any? %>
-			<%= @restaurant.errors.messages[:last_order][0]%><br>
 		<%end%>
 </p>
 <p>
