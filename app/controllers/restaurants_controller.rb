@@ -1,7 +1,7 @@
 class RestaurantsController < ApplicationController
 	def index
 		time = Time.now
-		now = time.hour
+		@now = time.hour
 
 		@restaurants = Restaurant.where('start_t <= end_t and ? < end_t and ? >= start_t',now,now).or(Restaurant.where('start_t > end_t and ? < end_t and ? < start_t',now,now)).or(Restaurant.where('start_t > end_t and ? > end_t and ? >= start_t',now,now))
 
