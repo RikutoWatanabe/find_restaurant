@@ -9,7 +9,8 @@ class RestaurantsController < ApplicationController
 	end
 
 	def show
-		@restaurant = Restaurant.find(params[:id])
+		@restaurant = Restaurant.includes(:comments).find(params[:id])
+		@comment = Comment.new
 	end
 
 	def create
@@ -51,7 +52,7 @@ class RestaurantsController < ApplicationController
 	private
 
 	def params_restaurant
-		params.require(:restaurant).permit(:name, :start_t, :end_t, :holiday,:location,:url)
+		params.require(:restaurant).permit(:name, :start_t, :end_t, :holiday,:location,:url,:last_order)
 	end
 
 end
