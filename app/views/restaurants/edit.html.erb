@@ -5,9 +5,9 @@
 
 <p>
  <%= form_for @restaurant do |f| %>
-  店名: <%= f.text_field :name %> <br>
-  open: <%= f.text_field :start_t%> <br>
-  close: <%= f.text_field :end_t %> <br>
+  *店名: <%= f.text_field :name %> <br>
+  *open: <%= f.text_field :start_t%> <br>
+  *close: <%= f.text_field :end_t %> <br>
   定休日: <%= f.text_field :holiday%> <br>
   場所:	<%= f.text_field :location %> <br>
   URL: <%= f.text_field :url %> <br>
@@ -24,4 +24,5 @@
 <p>
 	<%= f.submit "作成"%>
 </p>
+<p>※は必須項目です</p>
 <% end %>
