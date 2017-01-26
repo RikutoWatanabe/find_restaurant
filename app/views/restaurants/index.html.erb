@@ -9,7 +9,11 @@
 		<% @restaurants.each do |r| %>
 
 			<li>
-				<%= link_to r.name, restaurant_path(r),class: "btn btn-success"%>
+				<%if r.last_order%>
+					<%= link_to r.name, restaurant_path(r)%> (L.O  <%= r.last_order%>)
+				<%else%>
+					<%= link_to r.name, restaurant_path(r)%>
+				<%end%>
 			</li>
 		<%end%>
 	</ul>
