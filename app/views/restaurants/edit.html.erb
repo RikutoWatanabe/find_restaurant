@@ -1,7 +1,5 @@
 <h1>編集</h1>
-<p><%= link_to "<<Back", restaurants_path%></p>
-<h1>
-</h1>
+<p><%= link_to "<<"+@restaurant.name+"に戻る", restaurant_path(@restaurant)%></p>
 
 <p>
  <%= form_for @restaurant do |f| %>

@@ -11,6 +11,35 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <a class="navbar-brand text-muted">MENU</a>
+        <ul class="nav navbar-nav navbar-right">
+          <% if request.path_info == root_path%>
+            <li class="active"><a><%= link_to "Home", root_path%></a></li>
+          <%else%>
+            <li><a><%= link_to "Home", root_path%></a></li>
+          <%end%>
+
+          <% if request.path_info == restaurants_path%>
+            <li class="active"><a><%= link_to "開いているお店", restaurants_path%></a></li>
+          <%else%>
+            <li><a><%= link_to "開いているお店", restaurants_path%></a></li>
+          <%end%>
+          
+          <% if request.path_info == new_restaurant_path%>
+            <li class="active"><a><%= link_to "新規登録", new_restaurant_path%></a></li>
+          <%else%>
+            <li><a><%= link_to "新規登録", new_restaurant_path%></a></li>
+          <%end%>
+
+        </ul>
+      </div>
+    </div>
+      
+
+      <div class="position">  
+        <%= yield %>
+      </div>
   </body>
 </html>

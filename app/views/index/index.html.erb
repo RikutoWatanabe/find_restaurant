@@ -1,9 +1,6 @@
 <h1>飯屋検索</h1>
 
-<p>
-	<%= link_to "新規追加", new_restaurant_path%><br>
-	<%= link_to "現在開いているお店の一覧を表示", restaurants_path%>
-</p>
+
 <hr>
 	<p>現在時刻</p>
 		<h1><%= @time.to_s(:default)  %></h1>
@@ -14,7 +11,7 @@
 	<ul>
 		<% @restaurants.each do |r|%>
 		<li>
-			<%= link_to r.name,restaurant_path(r),class: "btn btn-success"%>
+			<%= link_to r.name,restaurant_path(r)%>
 			<%#  <%= link_to "[削除]", restaurant_path(r),method: :delete,data:{confirm: "本当に削除しますか？"}  %>
 		</li>
 		<% end %>
