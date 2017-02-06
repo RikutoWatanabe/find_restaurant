@@ -1,6 +1,6 @@
 <h1><%= @restaurant.name%></h1>
 
-<%= link_to "編集", edit_restaurant_path(@restaurant)%>
+<%= link_to "[編集]", edit_restaurant_path(@restaurant)%>
 
 <hr>
 	<p><strong>Open</strong> <%= @restaurant.start_t%>:00 ~~ <strong>Close</strong> <%= @restaurant.end_t%>:00 (<strong>L.O</strong> <%= @restaurant.last_order.to_s()%>)</p><br>
@@ -8,16 +8,15 @@
 	<p><strong>場所</strong> <%= @restaurant.location %></p><br>
 	<p><strong>URL</strong> <%=link_to @restaurant.url, @restaurant.url %></p>
 
-<hr>
-
 <div class="comments">
+	<hr>
  	<% @restaurant.comments.each_with_index do |comment, index| %>
 	 	<div class="comment">
 	 		<div class="comment--heading">
  				<%= index + 1 %>：
  				<%= comment.name %>：
  				<%= comment.created_at.strftime("%Y/%m/%d %H:%M:%S ") %>：
- 				<%= link_to "削除する", restaurant_comment_path(@restaurant, comment), method: :delete, data: { confirm: "本当に削除しますか?" } %> <br>
+ 				<%= link_to "[削除する]", restaurant_comment_path(@restaurant, comment), method: :delete, data: { confirm: "本当に削除しますか?" } %> <br>
  			</div>
 			<div class="comment-body">
 				<%= comment.content %>
@@ -25,18 +24,31 @@
 		</div>
 	<% end %>
 </div>
-
-<hr>
-	<%= form_for @comment, url: restaurant_comments_path(@restaurant, @comment) do |f| %>
-	名前: <%= f.text_field :name ,value: "NoName"%> <br>
-	コメント: <%= f.text_area :content %> <br>
 	<% if @comment.errors.any? %>
-		<%= @comment.errors.messages[:name][0] %><br>
-	<%end%>
-	<% if @comment.errors.any? %>
-		<%= @comment.errors.messages[:content][0]%><br>
-	<%end%>
+		<div class="alert alert-danger" role="alert">
+      	<strong>入力内容にエラーがあります</strong>
+      	<ul>
+        	<% @comment.errors.each do |attr, msg| %>
+          	<li><%= msg %></li>
+        	<% end %>
+      	</ul>
+    	</div>
+  	<% end %>
+  	<div class = "comment-form">
+  		<hr>
+   		<table class="table_comment">
+			<%= form_for @comment, url: restaurant_comments_path(@restaurant, @comment)  do |f| %>
+	 		<tr>
+      			<th>名前:</th>
+      			<td><%= f.text_field :name,value: "NoName" %></td>
+    		</tr>
+    		<tr>
+      			<th>コメント:</span></th>
+      			<td><%= f.text_area :content %></td>
+    		</tr>
+    	</table>
 	
-	<%= f.submit %>
-	<% end %>	
+		<%= f.submit "投稿", class: 'btn btn-success' %>
+		<% end %>
+	</div>	
 

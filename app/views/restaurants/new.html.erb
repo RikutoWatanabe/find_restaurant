@@ -1,27 +1,47 @@
 <h1>新規登録</h1>
 
 
-<p>
- <%= form_for @restaurant do |f| %>
-  ※店名: <%= f.text_field :name %> <br>
-  ※open: <%= f.text_field :start_t %>時 (0-24) <br>
-  ※close: <%= f.text_field :end_t %>時 (0-24) <br>
-  L.O: <%= f.text_field :last_order %> (ex 22:30)<br>
-  定休日: <%= f.text_field :holiday%><br>
-  場所:	<%= f.text_field :location %> <br>
-  URL: <%= f.text_field :url %> <br>
-		<% if @restaurant.errors.any? %>
-			<%= @restaurant.errors.messages[:name][0] %><br>
-		<%end%>
-		<% if @restaurant.errors.any? %>
-			<%= @restaurant.errors.messages[:start_t][0]%><br>
-		<%end%>
-		<% if @restaurant.errors.any? %>
-			<%= @restaurant.errors.messages[:end_t][0]%><br>
-		<%end%>
-</p>
-<p>
-	<%= f.submit "作成"%>
-</p>
-<p>※は必須項目です</p>
+
+  <% if @restaurant.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <strong>入力内容にエラーがあります</strong>
+      <ul>
+        <% @restaurant.errors.each do |attr, msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+   <table class="table">
+	<%= form_for @restaurant do |f| %>
+	 	<tr>
+      		<th>店名: <span class="text-danger">（必須）</span></th>
+      		<td><%= f.text_field :name %></td>
+    	</tr>
+    	<tr>
+      		<th>OPEN: <span class="text-danger">（必須）</span></th>
+      		<td><%= f.text_field :start_t %>(0-24)</td>
+    	</tr>
+    	<tr>
+      		<th>CLOSE: <span class="text-danger">（必須）</span></th>
+      		<td><%= f.text_field :end_t %>(0-24)</td>
+    	</tr>
+    	<tr>
+      		<th>L.O: </th>
+      		<td><%= f.text_field :last_order %>(ex 22:45)</td>
+    	</tr>
+    	<tr>
+      		<th>定休日: </th>
+      		<td><%= f.text_field :holiday %></td>
+    	</tr>
+    	<tr>
+      		<th>場所: </th>
+      		<td><%= f.text_field :location %></td>
+    	</tr>
+    	<tr>
+      		<th>URL: </th>
+      		<td><%= f.text_field :url %></td>
+    	</tr>
+    </table>
+		<%= f.submit "作成", class: 'btn btn-primary'%>
 <% end %>
